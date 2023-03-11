@@ -9,6 +9,7 @@ export const AppRouter = ()=>{
     return(
     <Routes>
         <Route path="/" element={<HomeView/>}/>
+        <Route path="/about" element={<FaqView/>}/>
         <Route path="/faq" element={<FaqView/>}/>
         <Route path="*" element={<NoRouteView/>}/>
     </Routes>

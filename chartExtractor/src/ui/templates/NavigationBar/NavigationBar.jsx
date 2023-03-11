@@ -1,5 +1,7 @@
 
 import "./NavigationBar.css"
+import { DropdownMenu } from "../../components/DropdownMenu/DropdownMenu"
+import { ChartLink } from "../../components/ChartLink/ChartLink"
 
 export const NavigationBar = ()=>{
 
@@ -13,6 +15,17 @@ export const NavigationBar = ()=>{
 
             <div className="navigation__bar--div">
                 <a className="navigation__link--a" href="/">Home</a>
+                <DropdownMenu>
+
+                    <ChartLink
+                        imageSource = "./images/logo.jpg"
+                        linkLabel = "Line chart"
+                        linkHref="/newLineChart"
+                    />
+                    <p><label>Scatter plot</label></p>
+                    <p><label>Bar chart</label></p>
+                    <p><label>Pie chart</label></p>
+                </DropdownMenu>
                 <a className="navigation__link--a" href="/about">About</a>
                 <a className="navigation__link--a" href="/faq">FAQ</a>
             </div>

@@ -6,7 +6,7 @@ export const StandardView = ({children})=>{
     return(
         <>
             <NavigationBar/>
-            <div>
+            <div style={{margin:"2em"}}>
                 {children}
             </div>
         </>

@@ -1,0 +1,20 @@
+
+.chart__link--a{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    
+}
+
+.chart__link--a:hover{
+    cursor: pointer;
+}
+
+.chart__link--img{
+    width: 30%;
+}
+.chart__link--p{
+    margin-left: 1em;
+}
