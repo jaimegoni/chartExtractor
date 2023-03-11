@@ -19,7 +19,7 @@ export const DropdownMenu = ({children}) =>{
 
     return(
         <div className="dropdown__menu--div" onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
-            <p className="dropdown__menu--p">Extract new chart</p>
+            <p className="dropdown__menu--p" style={{color : isDisplayed ? "blue" : "black"}}>Extract new chart</p>
             {
                 isDisplayed
                     &&
