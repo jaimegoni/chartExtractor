@@ -1,0 +1,37 @@
+
+.file__uploader--div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.drop_zone--div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    background-color: lightgray;
+    border: 2px solid grey;
+    border-radius: 8px;
+
+    width: 50%;
+    height: 5em;
+
+    color:black;
+
+    margin-bottom: 1em;
+}
+
+.dragged__over--div{
+    background-color: blue;
+    color:white;
+}
+
+.dropzone__components--div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+}
