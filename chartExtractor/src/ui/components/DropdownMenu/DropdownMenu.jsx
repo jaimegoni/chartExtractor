@@ -1,8 +1,11 @@
 
+import { Children } from "react"
 import { useState } from "react"
 import "./DropdownMenu.css"
 
 export const DropdownMenu = ({children}) =>{
+
+    const childrenAmount = Children.count(children);
 
     const [isDisplayed, setIsDisplayed] = useState(false);
 
@@ -21,11 +24,15 @@ export const DropdownMenu = ({children}) =>{
                 isDisplayed
                     &&
                 <ul className="dropdown__menu--ul">
-                    {
+                    {   
+                        childrenAmount > 1
+                            ?
                         children.map((child) =>(
                                 <li className="dropdown__menu--li">{child}</li>
                             )
                         )
+                            :
+                        <li className="dropdown__menu--li">{children}</li>
                     }
                 </ul>
             }

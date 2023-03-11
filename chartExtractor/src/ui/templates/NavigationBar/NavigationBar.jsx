@@ -22,9 +22,6 @@ export const NavigationBar = ()=>{
                         linkLabel = "Line chart"
                         linkHref="/newLineChart"
                     />
-                    <p><label>Scatter plot</label></p>
-                    <p><label>Bar chart</label></p>
-                    <p><label>Pie chart</label></p>
                 </DropdownMenu>
                 <a className="navigation__link--a" href="/about">About</a>
                 <a className="navigation__link--a" href="/faq">FAQ</a>
