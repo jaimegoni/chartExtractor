@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .drop_zone--div{
@@ -15,7 +15,7 @@
     border: 2px solid grey;
     border-radius: 8px;
 
-    width: 50%;
+    min-width: 50%;
     height: 5em;
 
     color:black;
