@@ -1,7 +1,11 @@
+
 import { useState } from "react";
+
 import { getStoredCharts } from "../../core/services/StorageRegister/GetStoredCharts";
 import { getUniqueRandomKey } from "../../core/services/StorageRegister/GetUniqueRandomKey";
 import { storeNewChart } from "../../core/services/StorageRegister/StoreNewChart";
+import { imageToBase64 } from "../../core/services/ImageToBase64/ImageToBase64";
+
 import { FileUploader } from "../components/FileUploader/FileUploader";
 import { StandardView } from "../templates/StandardView/StandardView";
 
@@ -19,7 +23,8 @@ export const UploadFileView = ()=>{
     }
 
     const toNextStep = ()=>{
-        
+        const b64img = imageToBase64(file);
+        console.log(b64img);
         const key = getUniqueRandomKey();
         const b64image = URL.createObjectURL(file);
 
