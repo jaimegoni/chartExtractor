@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./FileUploader.css"
 
-export const FileUploader = ({setB64image, acceptedTypes = ["image/jpeg", "image/png"]})=>{
+export const FileUploader = ({file, setFile, acceptedTypes = ["image/jpeg", "image/png"]})=>{
 
-    const inputId = "dropzoneInput";
-    const canvasId = "loadImageCanvas";
+    const inputId = "dropzoneInput"
 
-    const [isDraggedOver, setIsDraggedOver] = useState(false);
-    const [file, setFile] = useState(null);
+    const [isDraggedOver, setIsDraggedOver] = useState(false)
 
     const handleFileDrop = (event) =>{
 
@@ -70,28 +68,6 @@ export const FileUploader = ({setB64image, acceptedTypes = ["image/jpeg", "image
         }
     }
 
-    useEffect(()=>{
-        if (!(file === null)){
-
-            const image = new Image();
-            image.crossOrigin='anonymous';
-
-            image.onload = () => {
-                const cnvs = document.getElementById(canvasId);
-
-                const ctx = cnvs.getContext('2d');
-
-                cnvs.height = image.naturalHeight;
-                cnvs.width = image.naturalWidth;
-                ctx.drawImage(image, 0, 0);
-
-                setB64image(cnvs.toDataUrl());
-                console.log(cnvs.toDataUrl());
-            }
-            image.src = URL.createObjectURL(file);
-        }
-    },[file])
-
     return(
         <div className="file__uploader--div">
             <div
@@ -111,8 +87,10 @@ export const FileUploader = ({setB64image, acceptedTypes = ["image/jpeg", "image
             {
                 !(file === null)
                     &&
-                <canvas
-                    id = {canvasId}
+                <img
+                    src={URL.createObjectURL(file)}
+                    alt="uploadedImage"
+                    style={{maxWidth : "40%", marginBottom : "1em"}}
                 />
             }
             {
