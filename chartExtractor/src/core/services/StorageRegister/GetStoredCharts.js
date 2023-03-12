@@ -11,13 +11,12 @@ export const getStoredCharts = ()=>{
         const storedChartsTemplate = {
             creationDate: new Date().toDateString(),
             lastModificationDate : new Date().toDateString(),
-            storedCharts : 0,
             charts : []
         }
         saveObject(key, storedChartsTemplate);
         return storedChartsTemplate;
     }
-
+    
     return storedCharts;
 
 }

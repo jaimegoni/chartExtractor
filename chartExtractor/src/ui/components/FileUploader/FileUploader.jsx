@@ -58,6 +58,7 @@ export const FileUploader = ({file, setFile, acceptedTypes = ["image/jpeg", "ima
 
     const onInputChange = (event)=>{
         if (event.target.files[0]){
+            console.log(URL.createObjectURL((event.target.files[0])));
             if(acceptedTypes.includes(event.target.files[0].type)){
                 setFile(event.target.files[0]);
             }
