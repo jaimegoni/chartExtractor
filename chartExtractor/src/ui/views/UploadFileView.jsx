@@ -9,10 +9,10 @@ export const UploadFileView = ()=>{
 
     const [chartName, setChartName] = useState("");
     const [chartType, setChartType] = useState("-- Choose one --");
-    const [file, setFile] = useState(null);
+    const [b64image, setB64image] = useState("");
 
     const isInformationUploaded = ()=>{
-        if (!(chartName === "") && !(file === null) && !(chartType ==="-- Choose one --")){
+        if (!(chartName === "") && !(b64image === "") && !(chartType ==="-- Choose one --")){
             return true;
         }
         return false;
@@ -21,7 +21,6 @@ export const UploadFileView = ()=>{
     const toNextStep = ()=>{
         
         const key = getUniqueRandomKey();
-        const b64image = URL.createObjectURL(file);
 
         const chartInfo = {
             chartName,
@@ -52,8 +51,7 @@ export const UploadFileView = ()=>{
                 <h1>3) Choose a file</h1>
                 <br/>
                 <FileUploader
-                    file={file}
-                    setFile={setFile}
+                    setB64image={setB64image}
                 />
                 <br/><br/>
                 {
