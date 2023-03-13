@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { getStoredCharts } from "../../core/services/StorageRegister/GetStoredCharts";
 import { getUniqueRandomKey } from "../../core/services/StorageRegister/GetUniqueRandomKey";
@@ -14,32 +14,47 @@ export const UploadFileView = ()=>{
     const [chartName, setChartName] = useState("");
     const [chartType, setChartType] = useState("-- Choose one --");
     const [file, setFile] = useState(null);
+    const [b64image, setB64image] = useState("");
+
+    const [chartInfo, setChartInfo] = useState ({});
 
     const isInformationUploaded = ()=>{
-        if (!(chartName === "") && !(file === null) && !(chartType ==="-- Choose one --")){
+        if (!(chartName === "") && !(file === null) && !(chartType ==="-- Choose one --") && !(b64image==="")){
             return true;
         }
         return false;
     }
 
     const toNextStep = ()=>{
-        const b64img = imageToBase64(file);
-        console.log(b64img);
-        const key = getUniqueRandomKey();
-        const b64image = URL.createObjectURL(file);
-
-        const chartInfo = {
-            chartName,
-            key,
-            chartType,
-            b64image
-        }
         console.log(chartInfo);
         storeNewChart(chartInfo);
-        console.log(getStoredCharts());
-
     }
 
+    useEffect(
+        () =>{
+            if(!(file === null)){
+                imageToBase64(file, setB64image);
+            }
+        }
+        , [file]);
+    
+    useEffect(()=>{
+
+            if (isInformationUploaded()){
+                const key = getUniqueRandomKey();
+                setChartInfo({
+                    chartName,
+                    key,
+                    chartType,
+                    b64image
+                });
+            }
+            else{
+                setChartInfo({})
+            }
+        }
+        ,[chartName, chartType, b64image]);
+    
     return(
         <StandardView>
             <>  
