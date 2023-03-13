@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 
-import { storeNewChart } from "../../core/services/StorageRegister/StoreNewChart";
+import { storeNewChart } from "../../core/services/ChartsRegister/StoreNewChart";
 import { imageToBase64 } from "../../core/services/ImageToBase64/ImageToBase64";
 
 import { FileUploader } from "../components/FileUploader/FileUploader";
