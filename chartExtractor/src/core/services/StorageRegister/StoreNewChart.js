@@ -1,19 +1,31 @@
 
 import { getObject } from "../../infrastructure/MemoryStorage/GetObject";
 import { saveObject } from "../../infrastructure/MemoryStorage/SaveObject";
+import {getUniqueRandomKey} from "./GetUniqueRandomKey";
 
 export const storeNewChart = (chart)=>{
 
-    const key = "ChartExtractorMemory"
+    const storedChartsInfoKey = "ChartExtractorMemory";
+    const newChartKey = getUniqueRandomKey();
 
-    let storedCharts = getObject(key);
-    const updatedCharts = [...storedCharts.charts, chart] 
+    let storedCharts = getObject(storedChartsInfoKey);
+    
+    const updatedChartKeys = [...storedCharts.chartKeys, newChartKey]
 
-    storedCharts = {
-        ...storedCharts,
-        lastModificationDate : new Date().toDateString(),
-        charts : updatedCharts
-    }
-    saveObject(key, storedCharts);
+    saveObject(
+        storedChartsInfoKey,
+        {
+            ...storedCharts,
+            lastModificationDate : new Date().toDateString(),
+            chartKeys : updatedChartKeys
+        }
+    );
+
+    saveObject(
+        newChartKey,
+        chart
+        );
+
+    return;
 
 }

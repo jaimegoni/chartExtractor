@@ -1,8 +1,6 @@
 
 import { useState, useEffect } from "react";
 
-import { getStoredCharts } from "../../core/services/StorageRegister/GetStoredCharts";
-import { getUniqueRandomKey } from "../../core/services/StorageRegister/GetUniqueRandomKey";
 import { storeNewChart } from "../../core/services/StorageRegister/StoreNewChart";
 import { imageToBase64 } from "../../core/services/ImageToBase64/ImageToBase64";
 
@@ -41,10 +39,8 @@ export const UploadFileView = ()=>{
     useEffect(()=>{
 
             if (isInformationUploaded()){
-                const key = getUniqueRandomKey();
                 setChartInfo({
                     chartName,
-                    key,
                     chartType,
                     b64image
                 });
