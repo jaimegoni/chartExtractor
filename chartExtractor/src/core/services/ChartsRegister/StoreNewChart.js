@@ -1,7 +1,9 @@
 
+import PropTypes from 'prop-types'
+
 import { getObject } from "../../infrastructure/MemoryStorage/GetObject";
 import { saveObject } from "../../infrastructure/MemoryStorage/SaveObject";
-import {getUniqueRandomKey} from "./GetUniqueRandomKey";
+import { getUniqueRandomKey } from "./GetUniqueRandomKey";
 
 export const storeNewChart = (chart)=>{
 
@@ -28,4 +30,8 @@ export const storeNewChart = (chart)=>{
 
     return;
 
+}
+
+storeNewChart.propTypes = {
+    chart : PropTypes.object.isRequired
 }

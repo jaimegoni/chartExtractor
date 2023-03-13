@@ -1,4 +1,6 @@
 
+import PropTypes from 'prop-types'
+
 export const deleteChartByKey = (chartKey) =>{
 
     const storedChartsInfoKey = "ChartExtractorMemory";
@@ -19,4 +21,8 @@ export const deleteChartByKey = (chartKey) =>{
         );
     
     return;
+}
+
+deleteChartByKey.propTypes = {
+    chartKey : PropTypes.string.isRequired
 }
