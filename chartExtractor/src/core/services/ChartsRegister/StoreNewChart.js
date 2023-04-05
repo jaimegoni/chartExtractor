@@ -28,7 +28,7 @@ export const storeNewChart = (chart)=>{
         chart
         );
 
-    return;
+    return newChartKey;
 
 }
 

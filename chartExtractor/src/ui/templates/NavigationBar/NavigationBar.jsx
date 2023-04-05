@@ -1,6 +1,5 @@
 
 import "./NavigationBar.css"
-import { ChartLink } from "../../components/ChartLink/ChartLink"
 
 export const NavigationBar = ()=>{
 
@@ -8,7 +7,7 @@ export const NavigationBar = ()=>{
         <nav className="navigation__bar--nav">
 
             <div className="navigation__logo--div">
-                <img src="./images/logo.jpg" alt="page_logo" className="navigation__logo--img"/>
+                <img src="/images/logo.jpg" alt="page_logo" className="navigation__logo--img"/>
                 <p className="navigation__logo--p"><label>Chart extractor</label></p>
             </div>
 

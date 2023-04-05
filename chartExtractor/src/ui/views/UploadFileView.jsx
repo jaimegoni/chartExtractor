@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 import { storeNewChart } from "../../core/services/ChartsRegister/StoreNewChart";
 import { imageToBase64 } from "../../core/services/ImageToBase64/ImageToBase64";
@@ -16,6 +18,8 @@ export const UploadFileView = ()=>{
 
     const [chartInfo, setChartInfo] = useState ({});
 
+    const navigate = useNavigate();
+
     const isInformationUploaded = ()=>{
         if (!(chartName === "") && !(file === null) && !(chartType ==="-- Choose one --") && !(b64image==="")){
             return true;
@@ -24,8 +28,8 @@ export const UploadFileView = ()=>{
     }
 
     const toNextStep = ()=>{
-        console.log(chartInfo);
-        storeNewChart(chartInfo);
+        const chartKey = storeNewChart(chartInfo);
+        navigate("/selectAxis/" + chartKey);
     }
 
     useEffect(
