@@ -1,6 +1,9 @@
 
 import PropTypes from 'prop-types'
 
+import { getObject } from '../../infrastructure/MemoryStorage/GetObject';
+import { saveObject } from '../../infrastructure/MemoryStorage/SaveObject';
+
 export const deleteChartByKey = (chartKey) =>{
 
     const storedChartsInfoKey = "ChartExtractorMemory";
@@ -9,7 +12,7 @@ export const deleteChartByKey = (chartKey) =>{
 
     localStorage.removeItem(chartKey);
 
-    const chartKeys = storedChartsInfo.chartKeys
+    const chartKeys = storedChartsInfo.chartKeys.filter(key => key !== chartKey);
 
     saveObject(
             storedChartsInfoKey,

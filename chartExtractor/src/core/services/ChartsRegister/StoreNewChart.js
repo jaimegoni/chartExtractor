@@ -25,7 +25,10 @@ export const storeNewChart = (chart)=>{
 
     saveObject(
         newChartKey,
-        chart
+        {
+            ...chart,
+            key : newChartKey
+        }
         );
 
     return newChartKey;

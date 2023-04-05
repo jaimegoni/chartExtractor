@@ -46,7 +46,8 @@ export const UploadFileView = ()=>{
                 setChartInfo({
                     chartName,
                     chartType,
-                    b64image
+                    b64image,
+                    status:"selectAxis"
                 });
             }
             else{

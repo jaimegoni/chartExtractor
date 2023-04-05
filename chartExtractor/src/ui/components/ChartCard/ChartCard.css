@@ -1,0 +1,43 @@
+
+.chart__card--div{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 20%;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+
+    margin: 0.5em;
+    padding: 0.25em;
+}
+
+.chart__card--a{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+
+    padding: 0.3em;
+}
+.chart__card--a:hover{
+    background-color: lightgrey;
+}
+
+.chart__card--img{
+    max-width: 100%;
+}
+
+.chart__card--del{
+    border: 1px solid red;
+    border-radius: 3px;
+    align-self: flex-end;
+}
+.chart__card--del:hover{
+    background-color: red;
+    
+}
