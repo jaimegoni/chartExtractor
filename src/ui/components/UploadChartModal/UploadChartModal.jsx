@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { PropTypes } from 'prop-types';
 
+import './UploadChartModal.css';
+
 import { storeNewChart } from "../../../core/services/ChartsRegister/StoreNewChart";
 import { imageToBase64 } from "../../../core/services/ImageToBase64/ImageToBase64";
 import { extractOriginalImageSize } from "../../../core/services/ExtractOriginalImageSize/ExtractOriginalImageSize";
@@ -15,27 +17,33 @@ import { ModalFooter } from "../Modal/ModalFooter";
 
 export const UploadChartModal = ({setIsModalActive})=>{
 
-    const textInputId = "imageNameInput";
+    const textInputId = "chartNameInput";
+    const defaultChartType = "-- Choose one --";
 
-    const [imageName, setImageName] = useState("");
+    const [chartName, setChartName] = useState("");
+    const [chartType, setChartType] = useState("-- Choose one --");
     const [file, setFile] = useState(null);
     const [b64image, setB64image] = useState("");
     const [{imageWidth, imageHeight}, setImageDimensions] = useState({imageWidth:0, imageHeight:0});
 
-    const [imageInfo, setImageInfo] = useState ({});
+    const [chartInfo, setChartInfo] = useState ({});
 
     const navigate = useNavigate();
 
     const isInformationUploaded = ()=>{
-        if (!(imageName === "") && !(file === null) && !(b64image==="") && !(imageWidth===0) && !(imageHeight===0)){
+        if (!(chartName === "") && !(file === null) && !(b64image==="") && !(imageWidth===0) && !(imageHeight===0) && !(chartType===defaultChartType) ){
             return true;
         }
         return false;
     }
 
     const toNextStep = ()=>{
-        const imageKey = storeNewChart(imageInfo);
+        const imageKey = storeNewChart(chartInfo);
         navigate("/workspace/"+imageKey);
+    }
+
+    const onSelectChartType = (event)=>{
+        setChartType(event.target.value)
     }
 
     useEffect(
@@ -60,19 +68,19 @@ export const UploadChartModal = ({setIsModalActive})=>{
 
             if (isInformationUploaded()){
 
-                setImageInfo({
-                    imageName,
+                setChartInfo({
+                    chartName,
                     b64image,
                     imageWidth,
                     imageHeight,
-                    imageNotes : []
+                    chartType
                 });
             }
             else{
-                setImageInfo({});
+                setChartInfo({});
             }
         }
-        ,[imageName, imageWidth, imageHeight]);
+        ,[chartName, imageWidth, imageHeight]);
     
     useEffect(()=>{
         document.getElementById(textInputId).focus();
@@ -89,7 +97,13 @@ export const UploadChartModal = ({setIsModalActive})=>{
                     <>
                         <h2> Name of the chart</h2>
                         <br/>
-                        <input id={textInputId} type="text" placeholder="Image name" onChange={(event) => {setImageName(event.target.value);}} style={{minWidth : "30%"}}/>
+                        <input id={textInputId} type="text" placeholder="Chart name" onChange={(event) => {setChartName(event.target.value);}} style={{minWidth : "30%"}}/>
+                        <br/>
+                        <h2> Chart type</h2>
+                        <select className="chart__type--select" onChange={onSelectChartType}>
+                            <option value={defaultChartType}>{defaultChartType}</option>
+                            <option value={"lineChart"}>Line chart</option>
+                        </select>
                         <br/><br/>
                         <h2> Choose an image</h2>
                         <br/>

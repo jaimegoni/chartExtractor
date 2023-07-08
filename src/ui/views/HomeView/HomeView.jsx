@@ -8,7 +8,7 @@ import { getStoredChartsKeys } from "../../../core/services/ChartsRegister/GetSt
 import { deleteStoredCharts } from "../../../core/services/ChartsRegister/DeleteStoredCharts";
 import { ChartCard } from "../../components/ChartCard/ChartCard";
 import { StandardView } from "../../templates/StandardView/StandardView";
-import { UploadChartModal } from "../../components/UploadImageModal/UploadChartModal";
+import { UploadChartModal } from "../../components/UploadChartModal/UploadChartModal";
 
 export const HomeView = ()=>{
 
