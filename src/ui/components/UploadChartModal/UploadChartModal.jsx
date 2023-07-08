@@ -39,7 +39,7 @@ export const UploadChartModal = ({setIsModalActive})=>{
 
     const toNextStep = ()=>{
         const imageKey = storeNewChart(chartInfo);
-        navigate("/workspace/"+imageKey);
+        navigate("/chartExtractor/"+imageKey);
     }
 
     const onSelectChartType = (event)=>{

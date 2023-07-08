@@ -15,7 +15,7 @@ export const ChartCard = ({chartInfo})=>{
         <div className="chart__card--div">
             <button onClick={onDeleteChart} className="chart__card--del">🗑</button>
             <a
-                href={`/${chartInfo.status}/${chartInfo.key}`}
+                href={`/chartExtractor/${chartInfo.key}`}
                 className="chart__card--a"
             >
                 <p style={{margin:"3px"}}>{chartInfo.chartName}</p>

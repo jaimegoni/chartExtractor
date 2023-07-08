@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { StandardView } from "../templates/StandardView/StandardView";
-import { getStoredChartByKey } from "../../core/services/ChartsRegister/GetStoredChartByKey";
+import { StandardView } from "../../templates/StandardView/StandardView";
+import { getStoredChartByKey } from "../../../core/services/ChartsRegister/GetStoredChartByKey";
 
-export const SelectAxisView = ()=>{
+export const ChartExtractorView = ()=>{
 
     const { chartKey } = useParams();
 
