@@ -13,8 +13,7 @@ export const NavigationBar = ()=>{
 
             <div className="navigation__bar--div">
                 <a className="navigation__link--a" href="/">Home</a>
-                <a className="navigation__link--a" href="/uploadImage">Extract new chart</a>
-                <a className="navigation__link--a" href="/about">About</a>
+                <a className="navigation__link--a" href="/usage">Usage</a>
                 <a className="navigation__link--a" href="/faq">FAQ</a>
             </div>
     </nav>

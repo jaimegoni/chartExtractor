@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {PropTypes} from 'prop-types';
+import { PropTypes } from 'prop-types';
 
-import { storeNewImage } from "../../../core/services/ImagesRegister/StoreNewImage";
+import { storeNewChart } from "../../../core/services/ChartsRegister/StoreNewChart";
 import { imageToBase64 } from "../../../core/services/ImageToBase64/ImageToBase64";
 import { extractOriginalImageSize } from "../../../core/services/ExtractOriginalImageSize/ExtractOriginalImageSize";
 
@@ -13,7 +13,7 @@ import { LargeModalDialog } from "../Modal/LargeModalDialog";
 import { ModalBody } from "../Modal/ModalBody";
 import { ModalFooter } from "../Modal/ModalFooter";
 
-export const UploadImageModal = ({setIsModalActive})=>{
+export const UploadChartModal = ({setIsModalActive})=>{
 
     const textInputId = "imageNameInput";
 
@@ -34,8 +34,8 @@ export const UploadImageModal = ({setIsModalActive})=>{
     }
 
     const toNextStep = ()=>{
-        const imageKey = storeNewImage(imageInfo);
-        navigate("/smart-image/smartImageConfiguration/"+imageKey);
+        const imageKey = storeNewChart(imageInfo);
+        navigate("/workspace/"+imageKey);
     }
 
     useEffect(
@@ -87,7 +87,7 @@ export const UploadImageModal = ({setIsModalActive})=>{
             <>
                 <ModalBody>
                     <>
-                        <h2> Name of the image</h2>
+                        <h2> Name of the chart</h2>
                         <br/>
                         <input id={textInputId} type="text" placeholder="Image name" onChange={(event) => {setImageName(event.target.value);}} style={{minWidth : "30%"}}/>
                         <br/><br/>
@@ -115,6 +115,6 @@ export const UploadImageModal = ({setIsModalActive})=>{
     )
 }
 
-UploadImageModal.propTypes = {
+UploadChartModal.propTypes = {
     setIsModalActive : PropTypes.func.isRequired,
 }
