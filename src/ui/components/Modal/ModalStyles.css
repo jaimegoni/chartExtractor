@@ -1,0 +1,24 @@
+
+.modalBackground{
+    display: block;
+    background-color: rgb(153,153,153,0.5);
+}
+
+.close__button{
+    border: none;
+    border-radius: 2px;
+
+}
+
+.close__button:hover{
+    background-color: red;
+    color:white;
+}
+
+.modal__body--div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 90%;
+}
