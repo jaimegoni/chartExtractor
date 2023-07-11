@@ -6,6 +6,7 @@ import './ChartExtractorView.css';
 import { StandardView } from "../../templates/StandardView/StandardView";
 import { getStoredChartByKey } from "../../../core/services/ChartsRegister/GetStoredChartByKey";
 import { useMouseOver } from "../../../core/hooks/useMouseOver";
+import { MagnifierGlass } from "../../components/MagnifierGlass/MagnifierGlass";
 
 export const ChartExtractorView = ()=>{
 
@@ -38,7 +39,23 @@ export const ChartExtractorView = ()=>{
                 <label style={{marginBottom:"0.25em"}}>Chart display width (pixels):</label>
                 <input type="number" value={displayWidth} onChange={modifyDisplayWidth}/>
                 <br/>
-                <img id={imageId} className="chart__image--img" src={chartData.b64image} alt="chartImage" style={{width: displayWidth, height:displayHeight}}/>
+                <img
+                    id={imageId}
+                    className="chart__image--img"
+                    src={chartData.b64image}
+                    alt="chartImage"
+                    style={{width: displayWidth, height:displayHeight}}
+                />
+                {
+                    isOveringTarget
+                        &&
+                    <MagnifierGlass
+                        xPosition = {xPosition}
+                        yPosition = {yPosition}
+                        imgSrc = {chartData.b64image}
+                        targetImgId = {imageId}
+                    />
+                }
             </div>
         </StandardView>
     )

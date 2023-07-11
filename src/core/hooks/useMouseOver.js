@@ -4,28 +4,36 @@ import { useState, useEffect } from "react"
 
 export const useMouseOver = (targetElementId) =>{
 
-    let xPosition = 0;
-    let yPosition = 0;
 
     const [isOveringTarget, setIsOveringTarget] = useState(false);
+    const [{xPosition, yPosition}, setMouseCoordinates] = useState({
+        xPosition: 0,
+        yPosition: 0
+    })
 
 
     const onMouseOver = (event)=>{
         setIsOveringTarget(true);
-        xPosition = event.pageX;
-        yPosition = event.pageY;
+        setMouseCoordinates({
+            xPosition: Math.round(event.pageX),
+            yPosition: Math.round(event.pageY)
+        })
 
     }
 
     const onMouseMove = (event)=>{
-        xPosition = event.pageX;
-        yPosition = event.pageY;
+        setMouseCoordinates({
+            xPosition: Math.round(event.pageX),
+            yPosition: Math.round(event.pageY)
+        })
     }
 
     const onMouseOut = (event)=>{
         setIsOveringTarget(false);
-        xPosition = 0;
-        yPosition = 0;
+        setMouseCoordinates({
+            xPosition: 0,
+            yPosition: 0
+        })
     }
 
     useEffect(()=>{
