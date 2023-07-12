@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react';
 
 import './MagnifierGlass.css';
 
-export const MagnifierGlass = ({xPosition, yPosition, imgSrc, targetImgId}) =>{
-
-    const zoom = 2;
+export const MagnifierGlass = ({xPosition, yPosition, imgSrc, targetImgId, zoom}) =>{
 
     const magnifierWidth = 150;
     const magnifierHeight = 150;
