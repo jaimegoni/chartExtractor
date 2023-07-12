@@ -20,7 +20,6 @@ export const MagnifierGlass = ({xPosition, yPosition, imgSrc, targetImgId, zoom}
         backgroundSize: `${targetImg.offsetWidth * zoom}px ${targetImg.offsetHeight * zoom}px`,
     }
 
-
     const[magnifierGlassStyle, setMagnifierGlassStyle ] = useState({
 
         left: `${xPosition}px`,

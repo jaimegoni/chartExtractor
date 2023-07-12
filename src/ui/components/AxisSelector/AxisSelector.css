@@ -1,0 +1,37 @@
+
+.axis__selector--div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+
+    width: 50%;
+
+    border: 1px solid lightgray;
+    border-radius: 5px;
+
+    margin-top: 1em;
+}
+
+.selector__header--div{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    background-color: lightgray;
+
+    width: 100%;
+    padding: 0.5em;
+
+    font-weight: bolder;
+}
+
+.selector__pool--div{
+    min-height: 2em;
+    background-color: white;
+}
+
+.selector__header--label:hover{
+    cursor: pointer;
+}
