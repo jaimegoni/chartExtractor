@@ -9,6 +9,7 @@ import { getStoredChartByKey } from "../../../core/services/ChartsRegister/GetSt
 import { ChartImage } from "../../components/ChartImage/ChartImage";
 import { AxisSelector } from "../../components/AxisSelector/AxisSelector";
 import { useClickPosition } from "../../../core/hooks/useClickPosition";
+import { LocationForm } from "../../components/AxisSelector/components/LocationForm";
 
 
 export const ChartExtractorView = ()=>{
@@ -19,10 +20,28 @@ export const ChartExtractorView = ()=>{
 
     const [chartData, setChartData] = useState(getStoredChartByKey(chartKey));
     const [isSelectingAxis, setIsSelectingAxis] = useState(true);
+    
+    const [showTemporalAxisForm, setShowTemporalAxisForm] = useState(false);
 
     const {targetClicked, xClickedPosition, yClickedPosition} = useClickPosition(imageId);
 
-    useEffect(()=>{console.log({targetClicked, xClickedPosition, yClickedPosition})},[targetClicked, xClickedPosition, yClickedPosition])
+    useEffect(()=>{
+
+        if ((xClickedPosition> 0) && (yClickedPosition > 0)){
+            if (isSelectingAxis){
+                setShowTemporalAxisForm(true);
+            }
+        }
+        else{
+            setShowTemporalAxisForm(false);
+        }
+    },[xClickedPosition, yClickedPosition])
+
+    useEffect(()=>{
+        if(!isSelectingAxis){
+            setShowTemporalAxisForm(false);
+        }
+    },[isSelectingAxis])
 
     return(
         <StandardView>
@@ -40,7 +59,18 @@ export const ChartExtractorView = ()=>{
                     setIsActive = {setIsSelectingAxis}
                     chartData = {chartData}
                 />
-
+                {
+                    showTemporalAxisForm
+                        &&
+                    <LocationForm
+                        xPosition = {xClickedPosition}
+                        yPosition = {yClickedPosition}
+                        chartData = {chartData}
+                        imageId = {imageId}
+                        isActive = {showTemporalAxisForm}
+                        setActive = {setShowTemporalAxisForm}
+                    />
+                }
             </div>
         </StandardView>
     )

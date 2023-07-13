@@ -1,0 +1,21 @@
+
+.location__icon--img{
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0,0,0,0);
+
+    width: 32px;
+    height: 32px;
+
+}
+
+.location__icon--img:hover{
+    cursor: pointer;
+    background-color: rgba(255,0,255,0.3);
+    border: 1px solid red;
+}
+
+.active__icon{
+    background-color: rgba(255,0,0,0.3);
+    border: 1px solid red;
+}

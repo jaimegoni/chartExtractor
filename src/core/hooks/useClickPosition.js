@@ -19,7 +19,6 @@ export const useClickPosition = (targetElementId) =>{
         }
         else{
             setTargetClicked(false);
-            setClickedPosition(defaultClickedPosition);
         }
 
     };
