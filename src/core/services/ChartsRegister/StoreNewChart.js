@@ -8,7 +8,7 @@ import { getUniqueRandomKey } from "./GetUniqueRandomKey";
 export const storeNewChart = (chart)=>{
 
     const storedChartsInfoKey = "ChartExtractorMemory";
-    const newChartKey = getUniqueRandomKey();
+    const newChartKey = getUniqueRandomKey(10);
 
     let storedCharts = getObject(storedChartsInfoKey);
     

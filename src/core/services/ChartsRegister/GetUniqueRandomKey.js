@@ -2,21 +2,23 @@
 import { getRandomKey } from "../RandomKey/GetRandomKey";
 import { getStoredChartsKeys } from "./GetStoredChartsKeys";
 
-export const getUniqueRandomKey = ()=>{
+export const getUniqueRandomKey = (keyLength = 20)=>{
+
+    const keyword = "chartImg_";
 
     const storedChartsKeys = getStoredChartsKeys();
 
     if (storedChartsKeys.length > 0){
 
-        let key = getRandomKey();
+        let key = keyword + getRandomKey(keyLength);
 
         while (storedChartsKeys.includes(key)){
-            key = getRandomKey();
+            key = keyword + getRandomKey(keyLength);
         }
         return key;
     }
     else{
-        return getRandomKey();
+        return keyword + getRandomKey(keyLength);
     }
 
 }

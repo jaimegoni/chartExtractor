@@ -11,7 +11,6 @@ import { AxisSelector } from '../AxisSelector/AxisSelector';
 export const ChartImage = ({imageId, chartData})=>{
 
     const [activateZoom, setActivateZoom] = useState(true);
-    const [isSelectingAxis, setIsSelectingAxis] = useState(true);
     const [zoom, setZoom] = useState(3);
 
     const [{displayWidth, displayHeight}, setDisplayWidth] = useState({
@@ -67,11 +66,6 @@ export const ChartImage = ({imageId, chartData})=>{
                     zoom={zoom}
                 />
             }
-            <AxisSelector
-                isActive = {isSelectingAxis}
-                setIsActive = {setIsSelectingAxis}
-                chartData = {chartData}
-            />
         </>
     )
 }

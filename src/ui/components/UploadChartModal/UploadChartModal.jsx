@@ -73,7 +73,9 @@ export const UploadChartModal = ({setIsModalActive})=>{
                     b64image,
                     imageWidth,
                     imageHeight,
-                    chartType
+                    chartType,
+                    selectedAxis: [],
+                    selectedSeries: []
                 });
             }
             else{

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './AxisSelector.css';
 
@@ -13,7 +13,11 @@ export const AxisSelector = ({isActive, setIsActive, chartData}) =>{
                 isActive
                     &&
                 <div className='selector__pool--div'>
-
+                {
+                    chartData.selectedAxis.length === 0
+                        &&
+                    <label className='empty__warning--label'>No axis registered</label>
+                }
                 </div>
             }
 

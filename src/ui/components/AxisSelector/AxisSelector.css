@@ -35,3 +35,12 @@
 .selector__header--label:hover{
     cursor: pointer;
 }
+
+.empty__warning--label{
+    color: gray;
+
+    margin: 0.25em;
+
+    font-style: italic;
+
+}
