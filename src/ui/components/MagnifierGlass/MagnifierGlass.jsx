@@ -33,8 +33,8 @@ export const MagnifierGlass = ({xPosition, yPosition, imgSrc, targetImgId, zoom}
         const x_original = xPosition - Math.round(targetImg.offsetLeft);
         const y_original = yPosition - Math.round(targetImg.offsetTop);
 
-        const x = -1*(zoom * x_original - magnifierWidth/2);
-        const y = -1*(zoom * y_original - magnifierHeight/2);
+        const x = -1*(zoom * x_original - magnifierWidth/2 +3);
+        const y = -1*(zoom * y_original - magnifierHeight/2 +3);
 
         setMagnifierGlassStyle({
             ...magnifierGlassStyle,

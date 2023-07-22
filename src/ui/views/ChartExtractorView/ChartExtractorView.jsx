@@ -9,7 +9,7 @@ import { getStoredChartByKey } from "../../../core/services/ChartsRegister/GetSt
 import { ChartImage } from "../../components/ChartImage/ChartImage";
 import { AxisSelector } from "../../components/AxisSelector/AxisSelector";
 import { useClickPosition } from "../../../core/hooks/useClickPosition";
-import { LocationForm } from "../../components/AxisSelector/components/LocationForm";
+import { CreationLocationForm } from "../../components/AxisSelector/components/CreationLocationForm";
 
 
 export const ChartExtractorView = ()=>{
@@ -52,6 +52,7 @@ export const ChartExtractorView = ()=>{
                 <ChartImage
                     imageId={imageId}
                     chartData={chartData}
+                    setChartData = {setChartData}
                 />
 
                 <AxisSelector
@@ -62,15 +63,17 @@ export const ChartExtractorView = ()=>{
                 {
                     showTemporalAxisForm
                         &&
-                    <LocationForm
+                    <CreationLocationForm
                         xPosition = {xClickedPosition}
                         yPosition = {yClickedPosition}
                         chartData = {chartData}
+                        setChartData = {setChartData}
                         imageId = {imageId}
                         isActive = {showTemporalAxisForm}
                         setActive = {setShowTemporalAxisForm}
                     />
                 }
+
             </div>
         </StandardView>
     )

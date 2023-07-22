@@ -12,10 +12,8 @@
 .location__icon--img:hover{
     cursor: pointer;
     background-color: rgba(255,0,255,0.3);
-    border: 1px solid red;
 }
 
 .active__icon{
-    background-color: rgba(255,0,0,0.3);
-    border: 1px solid red;
+    background-color: rgba(0,0,0,0);
 }

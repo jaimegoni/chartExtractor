@@ -7,11 +7,13 @@ import { useMouseOver } from '../../../core/hooks/useMouseOver';
 import { MagnifierGlass } from '../MagnifierGlass/MagnifierGlass';
 import { SliderSwitch } from '../SliderSwitch/SliderSwitch';
 import { AxisSelector } from '../AxisSelector/AxisSelector';
+import { LocationForm } from '../AxisSelector/components/LocationForm';
 
-export const ChartImage = ({imageId, chartData})=>{
+export const ChartImage = ({imageId, chartData, setChartData})=>{
 
     const [activateZoom, setActivateZoom] = useState(true);
     const [zoom, setZoom] = useState(3);
+    const [asdf, setAsdf] = useState(false);
 
     const [{displayWidth, displayHeight}, setDisplayWidth] = useState({
         displayWidth: chartData.imageWidth,
@@ -28,6 +30,8 @@ export const ChartImage = ({imageId, chartData})=>{
         })
 
     }
+
+    useEffect(()=>{setAsdf(true)},[])
 
     return (
         <>
@@ -66,6 +70,19 @@ export const ChartImage = ({imageId, chartData})=>{
                     zoom={zoom}
                 />
             }
+            {
+                    ((chartData.selectedAxis.length > 0) && asdf)
+                        &&
+                    chartData.selectedAxis.map((axisData)=>(
+                        <LocationForm
+                            key = {axisData.key}
+                            axisData = {axisData}
+                            chartData = {chartData}
+                            setChartData = {setChartData}
+                            imageId = {imageId}
+                        />
+                    ))
+                }
         </>
     )
 }
