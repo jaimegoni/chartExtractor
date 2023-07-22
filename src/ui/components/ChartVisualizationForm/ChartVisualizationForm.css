@@ -1,0 +1,36 @@
+
+.actions--div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+
+    border: 1px solid lightgray;
+    padding: 0.5em;
+
+    border-radius: 5px;
+
+}
+
+.display__width--div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 0.25em;
+
+}
+
+
+.display__width--input{
+    width: 8em;
+    text-align: center;
+}
+
+.magnifier__activation--div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -10,6 +10,7 @@ import { ChartImage } from "../../components/ChartImage/ChartImage";
 import { AxisSelector } from "../../components/AxisSelector/AxisSelector";
 import { useClickPosition } from "../../../core/hooks/useClickPosition";
 import { CreationNote } from "../../components/AxisSelector/components/CreationNote";
+import { ChartVisualizationForm } from "../../components/ChartVisualizationForm/ChartVisualizationForm";
 
 
 export const ChartExtractorView = ()=>{
@@ -24,6 +25,14 @@ export const ChartExtractorView = ()=>{
     const [showTemporalAxisForm, setShowTemporalAxisForm] = useState(false);
 
     const {targetClicked, xClickedPosition, yClickedPosition} = useClickPosition(imageId);
+    
+    const [activateZoom, setActivateZoom] = useState(true);
+    const [zoom, setZoom] = useState(3);
+
+    const [{displayWidth, displayHeight}, setDisplayDimensions] = useState({
+        displayWidth: chartData.imageWidth,
+        displayHeight: chartData.imageHeight
+    });
 
     useEffect(()=>{
 
@@ -46,33 +55,48 @@ export const ChartExtractorView = ()=>{
     return(
         <StandardView>
             <div className="page__container--div">
-                <h1>Chart name: {chartData.chartName}</h1>
-                <br/>
-
-                <ChartImage
-                    imageId={imageId}
-                    chartData={chartData}
-                    setChartData = {setChartData}
-                />
-
-                <AxisSelector
-                    isActive = {isSelectingAxis}
-                    setIsActive = {setIsSelectingAxis}
-                    chartData = {chartData}
-                />
-                {
-                    showTemporalAxisForm
-                        &&
-                    <CreationNote
-                        xPosition = {xClickedPosition}
-                        yPosition = {yClickedPosition}
-                        chartData = {chartData}
+                <div className="chart__container--div">
+                    <h1>Chart name: {chartData.chartName}</h1>
+                    <br/>
+                    <ChartImage
+                        imageId={imageId}
+                        chartData={chartData}
                         setChartData = {setChartData}
-                        imageId = {imageId}
-                        isActive = {showTemporalAxisForm}
-                        setActive = {setShowTemporalAxisForm}
+                        displayWidth = {displayWidth}
+                        displayHeight = {displayHeight}
+                        activateZoom = {activateZoom}
+                        zoom = {zoom}
                     />
-                }
+                </div>
+                <div className="actions__container--div">
+                    <ChartVisualizationForm
+                        chartData = { chartData}
+                        displayWidth = {displayWidth}
+                        setDisplayDimensions = {setDisplayDimensions}
+                        activateZoom = {activateZoom}
+                        setActivateZoom = {setActivateZoom}
+                        zoom={zoom}
+                        setZoom = {setZoom}
+                    />
+                    <AxisSelector
+                        isActive = {isSelectingAxis}
+                        setIsActive = {setIsSelectingAxis}
+                        chartData = {chartData}
+                    />
+                    {
+                        showTemporalAxisForm
+                            &&
+                        <CreationNote
+                            xPosition = {xClickedPosition}
+                            yPosition = {yClickedPosition}
+                            chartData = {chartData}
+                            setChartData = {setChartData}
+                            imageId = {imageId}
+                            isActive = {showTemporalAxisForm}
+                            setActive = {setShowTemporalAxisForm}
+                        />
+                    }
+                </div>
 
             </div>
         </StandardView>

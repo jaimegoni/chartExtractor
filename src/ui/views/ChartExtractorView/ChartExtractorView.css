@@ -1,12 +1,35 @@
 
 .page__container--div{
     display: flex;
-    flex-direction: column;
+    flex-direction: ROW;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
 
 }
 
 .chart__image--img{
     border: 2px solid blue;
+}
+
+.chart__container--div{
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    justify-self: flex-end;
+    flex-grow: 1;
+
+    align-items: center;
+
+    min-width:80%;
+}
+
+.actions__container--div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    align-items: center;
 }
