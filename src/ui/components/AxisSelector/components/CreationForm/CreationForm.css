@@ -1,0 +1,21 @@
+.note__actions--div{
+    margin-top: 0.25em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coord__input--div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin: 0.25em;
+}
+
+.coord_input--input{
+    width: 6em;
+    margin-left: 1em;
+}

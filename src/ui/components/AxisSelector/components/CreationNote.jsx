@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { createUniqueKey } from "../../../../core/services/RandomKey/CreateUniqueKey";
 import { updateChart } from "../../../../core/services/ChartsRegister/UpdateChart";
 
-import { LocationIcon } from "./LocationIcon/LocationIcon"
-import { PositionForm } from "./PositionForm/PositionForm"
+import { LocationIcon } from "./LocationIcon/LocationIcon";
+import { CreationForm } from "./CreationForm/CreationForm";
 
 
-export const CreationLocationForm = ({xPosition, yPosition, chartData, setChartData, imageId, isActive, setActive})=>{
+export const CreationNote = ({xPosition, yPosition, chartData, setChartData, imageId, isActive, setActive})=>{
 
     const displayImage = document.getElementById(imageId);
 
@@ -79,7 +79,7 @@ export const CreationLocationForm = ({xPosition, yPosition, chartData, setChartD
                 isActive = {isActive}
                 setActive = {setActive}
             />
-            <PositionForm
+            <CreationForm
                 xPosition = {xPos + 30}
                 yPosition = {yPos}
                 setFormActive = {setActive}

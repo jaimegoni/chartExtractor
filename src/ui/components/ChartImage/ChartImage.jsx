@@ -7,7 +7,7 @@ import { useMouseOver } from '../../../core/hooks/useMouseOver';
 import { MagnifierGlass } from '../MagnifierGlass/MagnifierGlass';
 import { SliderSwitch } from '../SliderSwitch/SliderSwitch';
 import { AxisSelector } from '../AxisSelector/AxisSelector';
-import { LocationForm } from '../AxisSelector/components/LocationForm';
+import { LocationNote } from '../AxisSelector/components/LocationNote';
 
 export const ChartImage = ({imageId, chartData, setChartData})=>{
 
@@ -74,12 +74,13 @@ export const ChartImage = ({imageId, chartData, setChartData})=>{
                     ((chartData.selectedAxis.length > 0) && asdf)
                         &&
                     chartData.selectedAxis.map((axisData)=>(
-                        <LocationForm
+                        <LocationNote
                             key = {axisData.key}
                             axisData = {axisData}
                             chartData = {chartData}
                             setChartData = {setChartData}
                             imageId = {imageId}
+                            displayWidth = {displayWidth}
                         />
                     ))
                 }

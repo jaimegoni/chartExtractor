@@ -9,7 +9,7 @@ import { getStoredChartByKey } from "../../../core/services/ChartsRegister/GetSt
 import { ChartImage } from "../../components/ChartImage/ChartImage";
 import { AxisSelector } from "../../components/AxisSelector/AxisSelector";
 import { useClickPosition } from "../../../core/hooks/useClickPosition";
-import { CreationLocationForm } from "../../components/AxisSelector/components/CreationLocationForm";
+import { CreationNote } from "../../components/AxisSelector/components/CreationNote";
 
 
 export const ChartExtractorView = ()=>{
@@ -63,7 +63,7 @@ export const ChartExtractorView = ()=>{
                 {
                     showTemporalAxisForm
                         &&
-                    <CreationLocationForm
+                    <CreationNote
                         xPosition = {xClickedPosition}
                         yPosition = {yClickedPosition}
                         chartData = {chartData}

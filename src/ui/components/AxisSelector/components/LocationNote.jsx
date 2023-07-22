@@ -8,7 +8,7 @@ import { LocationIcon } from "./LocationIcon/LocationIcon"
 import { PositionForm } from "./PositionForm/PositionForm"
 
 
-export const LocationForm = ({axisData, chartData, setChartData, imageId})=>{
+export const LocationNote = ({axisData, chartData, setChartData, imageId, displayWidth})=>{
 
     const displayImage = document.getElementById(imageId);
 
@@ -61,6 +61,10 @@ export const LocationForm = ({axisData, chartData, setChartData, imageId})=>{
         return(()=>{window.removeEventListener('resize', onPageResize)})
     },[])
 
+    useEffect(()=>{
+        onPageResize();
+    },[displayWidth])
+
 
     return(
         <>
@@ -70,12 +74,19 @@ export const LocationForm = ({axisData, chartData, setChartData, imageId})=>{
                 isActive = {isActive}
                 setActive = {setIsActive}
             />
-            <PositionForm
-                xPosition = {xPos + 30}
-                yPosition = {yPos}
-                setFormActive = {setIsActive}
-                onSaveForm = {updateLocation}
-            />
+            {
+                isActive
+                    &&
+                <PositionForm
+                    xPosition = {xPos + 30}
+                    yPosition = {yPos}
+                    xRealCoordinate = {axisData.xRealCoordinate}
+                    yRealCoordinate = {axisData.yRealCoordinate}
+                    setFormActive = {setIsActive}
+                    onSaveForm = {updateLocation}
+                    onDeleteForm={deleteLocation}
+                />
+            }
         </>
     )
 }
