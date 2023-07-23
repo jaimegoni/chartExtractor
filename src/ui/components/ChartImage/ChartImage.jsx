@@ -13,7 +13,7 @@ export const ChartImage = ({imageId, chartData, setChartData, displayWidth, disp
 
     const [asdf, setAsdf] = useState(false);
 
-    const {xPosition, yPosition, isOveringTarget} = useMouseOver(imageId)
+    const {xPosition, yPosition, isOveringTarget} = useMouseOver(imageId);
 
     useEffect(()=>{setAsdf(true)},[])
 

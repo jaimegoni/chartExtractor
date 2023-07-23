@@ -6,8 +6,16 @@ import { createEmptyImageDataUrl } from '../../../core/services/CreateEmptyImage
 
 export const Series = ({chartData, seriesData, mainImageId, displayWidth, displayHeight})=>{
 
-    const [seriesImageDataUrl, setSeriesImageDataUrl] = useState(createEmptyImageDataUrl(chartData.imageWidth,chartData.imageHeight));
+    const canvasId = 'series__' + seriesData.key;
 
+    const [seriesImageDataUrls, setSeriesImageDataUrls] = useState([seriesData.dataUrl]);
+
+    const [isActive, setIsActive] = useState(false);
+    const [canvasVisible, setCanvasVisible] = useState(true);
+    const [fillColor, setFillColor] = useState(seriesData.fillColor);
+    const [fillMode, setFillMode] = useState('point');
+
+    
     return(
         <>
                 
