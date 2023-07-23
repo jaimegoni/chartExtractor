@@ -1,0 +1,23 @@
+
+.newSeries__form--div{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    
+    border: 1px solid lightgray;
+    border-radius: 5px;
+
+    margin-top: 0.5em;
+
+    padding: 0.5em;
+}
+
+.newSeries__name--input{
+    max-width: 15em;
+
+    margin-right: 1em;
+}

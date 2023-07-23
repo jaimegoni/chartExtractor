@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: flex-start;
     
+    width: 100%;
 
     border: 1px solid lightgray;
     padding: 0.5em;

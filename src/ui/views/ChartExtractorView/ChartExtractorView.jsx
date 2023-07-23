@@ -11,7 +11,7 @@ import { AxisSelector } from "../../components/AxisSelector/AxisSelector";
 import { useClickPosition } from "../../../core/hooks/useClickPosition";
 import { CreationNote } from "../../components/AxisSelector/components/CreationNote";
 import { ChartVisualizationForm } from "../../components/ChartVisualizationForm/ChartVisualizationForm";
-
+import { NewSeriesForm } from "../../components/NewSeriesForm/NewSeriesForm";
 
 export const ChartExtractorView = ()=>{
 
@@ -67,6 +67,20 @@ export const ChartExtractorView = ()=>{
                         activateZoom = {activateZoom}
                         zoom = {zoom}
                     />
+                    
+                    {
+                        showTemporalAxisForm
+                            &&
+                        <CreationNote
+                            xPosition = {xClickedPosition}
+                            yPosition = {yClickedPosition}
+                            chartData = {chartData}
+                            setChartData = {setChartData}
+                            imageId = {imageId}
+                            isActive = {showTemporalAxisForm}
+                            setActive = {setShowTemporalAxisForm}
+                        />
+                    }
                 </div>
                 <div className="actions__container--div">
                     <ChartVisualizationForm
@@ -83,19 +97,7 @@ export const ChartExtractorView = ()=>{
                         setIsActive = {setIsSelectingAxis}
                         chartData = {chartData}
                     />
-                    {
-                        showTemporalAxisForm
-                            &&
-                        <CreationNote
-                            xPosition = {xClickedPosition}
-                            yPosition = {yClickedPosition}
-                            chartData = {chartData}
-                            setChartData = {setChartData}
-                            imageId = {imageId}
-                            isActive = {showTemporalAxisForm}
-                            setActive = {setShowTemporalAxisForm}
-                        />
-                    }
+                    <NewSeriesForm/>
                 </div>
 
             </div>
