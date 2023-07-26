@@ -1,0 +1,33 @@
+
+.fill__button--div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    border-radius: 2px;
+    padding: 0.25em;
+    margin: 0.1em;
+}
+
+.fill__button--div:hover{
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.fill_active{
+    background-color: lightgrey;
+    font-weight: bolder
+}
+
+.option__pencil--img{
+    width: 1.25em;
+}
+
+.option__image--div{
+    width: 5em;
+}
+
+.option--label:hover{
+    cursor: pointer;
+}

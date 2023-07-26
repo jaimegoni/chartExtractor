@@ -12,10 +12,18 @@ import { useClickPosition } from "../../../core/hooks/useClickPosition";
 import { CreationNote } from "../../components/AxisSelector/components/CreationNote";
 import { ChartVisualizationForm } from "../../components/ChartVisualizationForm/ChartVisualizationForm";
 import { NewSeriesForm } from "../../components/NewSeriesForm/NewSeriesForm";
+import { Series } from "../../components/Series/Series";
 
 export const ChartExtractorView = ()=>{
 
     const imageId = "chartImageId";
+
+    const seriesData = {
+        key: "asdf",
+        name: "Example",
+        dataUrl: "asdf",
+        fillColor: "#ff0000"
+    }
 
     const { chartKey } = useParams();
 
@@ -98,6 +106,13 @@ export const ChartExtractorView = ()=>{
                         chartData = {chartData}
                     />
                     <NewSeriesForm/>
+                    <Series
+                        chartData = {chartData}
+                        seriesData = {seriesData}
+                        mainImageId = {imageId}
+                        displayWidth = {displayWidth}
+                        displayHeight = {displayHeight}
+                    />
                 </div>
 
             </div>

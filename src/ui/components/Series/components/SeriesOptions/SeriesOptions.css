@@ -22,16 +22,23 @@
     justify-content: flex-start;
     align-items: center;
 
+    width: 100%;
+
     padding: 0.5em;
     border: 1px solid lightgray;
 }
 
-.option__action--icon{
-    width: 4em;
-    border-radius: 5px;
+.seriesOptions__header--label{
+    font-weight: bolder;
+    margin-left: 0.5em;
+}
 
-    background-color: lightgray;
+.option__action--img{
+    width: 1.25em;
 
+}
+.option__action--img:hover{
+    cursor: pointer;
 }
 
 .active__icon{
@@ -53,8 +60,24 @@
 
 .seriesOptions__fillMode--div{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: left;
 
+    width: 100%;
+    padding: 0.25em;
+
+}
+
+.seriesOptions__color--input{
+ width: 1.25em;
+ height: 1.25em;
+}
+
+.seriesOptions__color--input:hover{
+    cursor: pointer;
+}
+
+.fill__icon--img{
+    width: 4em;
 }
